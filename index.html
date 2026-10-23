@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulut Reklam Paneli</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #101827;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #17263e;
+  padding: 25px;
+  text-align: center;
+}
+h1 { color: #eac16d; }
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+.card {
+  background: #1d2d46;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+input, textarea, button {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+textarea { min-height: 110px; }
+button {
+  background: #eac16d;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+}
+.item {
+  background: #30425c;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+a { color: #eac16d; }
+small { color: #bbc7d7; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>☁️ BULUT REKLAM</h1>
+<p>Telegram Reklam Yönetim Paneli</p>
+</header>
+
+<main>
+
+<div class="card">
+<h2>📊 Panel Durumu</h2>
+<p>Kayıtlı grup: <b id="sayi">0</b></p>
+<p>Mesaj taslağı: <b id="mesajSayi">0</b></p>
+</div>
+
+<div class="card">
+<h2>➕ Grup Ekle</h2>
+<input id="grupAdi" placeholder="Grup adı">
+<input id="grupLink" placeholder="https://t.me/...">
+<label>
+<input type="checkbox" id="izin" style="width:auto">
+Bu grupta reklam paylaşımına izin
