@@ -83,7 +83,20 @@ Bu grupta reklam paylaşımına izin
 </main>
 <script>
 function grupEkle() {
-  alert('Grup Ekle yakında hazırlanıyor.');
+  const ad = document.getElementById('grupAdi').value.trim();
+  const link = document.getElementById('grupLink').value.trim();
+  const izin = document.getElementById('izin').checked;
+
+  if (!ad || !/^https:\/\/t\.me\/[A-Za-z0-9_+/-]+$/.test(link)) {
+    alert('Geçerli grup adı ve Telegram linki gir.');
+    return;
+  }
+
+  const gruplar = JSON.parse(localStorage.getItem('gruplar') || '[]');
+  gruplar.push({ ad, link, izin });
+  localStorage.setItem('gruplar', JSON.stringify(gruplar));
+  document.getElementById('sayi').textContent = gruplar.length;
+  alert('Grup başarıyla kaydedildi!');
 }
 </script>
 </body>
