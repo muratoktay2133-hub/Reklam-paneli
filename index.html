@@ -178,6 +178,34 @@ function mesajKaydet() {
 }
 
 window.addEventListener('load', mesajAlaniOlustur);
+  
+</script>
+  <section id="grupIzinTakibi">
+  <h3>🔎 Grup Bul ve İzin Takibi</h3>
+  <p>Reklam paylaşımı için grup yöneticisi onayı gereklidir.</p>
+
+  <input id="grupLinki" placeholder="Telegram grup bağlantısı">
+
+  <button onclick="grupEkle()">➕ Grup Ekle</button>
+
+  <ul id="izinListesi"></ul>
+</section>
+
+<script>
+function grupEkle() {
+  const link = document.getElementById('grupLinki').value.trim();
+
+  if (!link) {
+    alert('Grup bağlantısını girin.');
+    return;
+  }
+
+  const satir = document.createElement('li');
+  satir.textContent = link + ' — İzin bekleniyor';
+
+  document.getElementById('izinListesi').appendChild(satir);
+  document.getElementById('grupLinki').value = '';
+}
 </script>
 </body>
 </html>
