@@ -98,6 +98,26 @@ function grupEkle() {
   document.getElementById('sayi').textContent = gruplar.length;
   alert('Grup başarıyla kaydedildi!');
 }
+//BULUT REKLAM PANELİ
+// Otomatik mesaj zamanlama ayarları
+
+const mesajAyarlari = {
+  mesaj: "",
+  aralikDakika: 15,
+  aktif: false
+};
+
+function mesajAyariKaydet(mesaj, dakika) {
+  mesajAyarlari.mesaj = mesaj;
+  mesajAyarlari.aralikDakika = Number(dakika);
+
+  localStorage.setItem(
+    "mesajAyarlari",
+    JSON.stringify(mesajAyarlari)
+  );
+
+  alert("Mesaj ayarları kaydedildi!");
+}
 </script>
 </body>
 </html>
