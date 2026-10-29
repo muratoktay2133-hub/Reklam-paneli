@@ -142,6 +142,42 @@ function mesajAyariKaydet(mesaj, dakika) {
 }
 
 window.addEventListener('load', gruplariGoster);
+function mesajAlaniOlustur() {
+  const main = document.querySelector('main');
+  if (!main || document.getElementById('mesajPaneli')) return;
+
+  const alan = document.createElement('section');
+  alan.id = 'mesajPaneli';
+  alan.className = 'card';
+
+  alan.innerHTML = `
+    <h2>📨 Reklam Mesajı Hazırla</h2>
+    <textarea id="reklamMesaji"
+      placeholder="Reklam mesajınızı yazın..."
+      style="width:100%;min-height:130px;padding:12px">
+    </textarea>
+    <button onclick="mesajKaydet()">
+      💾 Mesajı Kaydet
+    </button>
+    <p id="mesajDurumu"></p>
+  `;
+
+  main.appendChild(alan);
+
+  document.getElementById('reklamMesaji').value =
+    localStorage.getItem('reklamTaslagi') || '';
+}
+
+function mesajKaydet() {
+  const mesaj = document.getElementById('reklamMesaji').value;
+
+  localStorage.setItem('reklamTaslagi', mesaj);
+
+  document.getElementById('mesajDurumu').textContent =
+    '✅ Mesaj taslağı kaydedildi!';
+}
+
+window.addEventListener('load', mesajAlaniOlustur);
 </script>
 </body>
 </html>
