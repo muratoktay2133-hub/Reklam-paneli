@@ -118,6 +118,30 @@ function mesajAyariKaydet(mesaj, dakika) {
 
   alert("Mesaj ayarları kaydedildi!");
 }
+  function gruplariGoster() {
+  const gruplar = JSON.parse(
+    localStorage.getItem('gruplar') || '[]'
+  );
+
+  let alan = document.getElementById('grupListesi');
+
+  if (!alan) {
+    alan = document.createElement('div');
+    alan.id = 'grupListesi';
+    alan.className = 'card';
+    document.querySelector('main').appendChild(alan);
+  }
+
+  alan.innerHTML = '<h2>📋 Kayıtlı Gruplar</h2>';
+
+  gruplar.forEach((grup, i) => {
+    const satir = document.createElement('p');
+    satir.textContent = (i + 1) + '. ' + grup.ad + ' — ' + grup.link;
+    alan.appendChild(satir);
+  });
+}
+
+window.addEventListener('load', gruplariGoster);
 </script>
 </body>
 </html>
