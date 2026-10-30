@@ -207,5 +207,67 @@ function grupEkle() {
   document.getElementById('grupLinki').value = '';
 }
 </script>
+  <section id="telegramHesaplari" style="background:#1e304d;color:white;padding:20px;border-radius:15px;margin:20px 0;">
+
+<h2>📱 BULUT PANEL - TELEGRAM HESAPLARI</h2>
+
+<p>10 Telegram hesabı yönetimi</p>
+
+<p id="hesapSayisi">Kayıtlı hesap: 0 / 10</p>
+
+<input
+type="tel"
+id="telegramNumara"
+placeholder="+90 5XX XXX XX XX"
+style="width:95%;padding:12px;margin:10px 0;border-radius:8px;"
+>
+
+<button onclick="hesapEkle()" style="background:#e9bf68;padding:14px;width:100%;border:0;border-radius:8px;font-weight:bold;">
+➕ Hesap Kaydı Oluştur
+</button>
+
+<p id="hesapUyari"></p>
+
+<ul id="hesapListesi"></ul>
+
+<p>🔒 Telegram bağlantısı henüz etkin değil.</p>
+
+</section>
+
+<script>
+let hesaplar = [];
+
+function hesapEkle() {
+  const numara = document.getElementById("telegramNumara").value.trim();
+  const uyari = document.getElementById("hesapUyari");
+
+  if (hesaplar.length >= 10) {
+    uyari.textContent = "En fazla 10 hesap eklenebilir.";
+    return;
+  }
+
+  if (!/^\+[1-9]\d{7,14}$/.test(numara)) {
+    uyari.textContent = "Numarayı ülke koduyla girin.";
+    return;
+  }
+
+  if (hesaplar.includes(numara)) {
+    uyari.textContent = "Bu numara zaten listede.";
+    return;
+  }
+
+  hesaplar.push(numara);
+
+  document.getElementById("hesapSayisi").textContent =
+    "Kayıtlı hesap: " + hesaplar.length + " / 10";
+
+  const li = document.createElement("li");
+  li.textContent = "Hesap " + hesaplar.length + " - Bağlı değil";
+  document.getElementById("hesapListesi").appendChild(li);
+
+  document.getElementById("telegramNumara").value = "";
+  uyari.textContent = "Taslak kayıt oluşturuldu. Telegram bağlantısı yapılmadı.";
+}
+</script>
 </body>
 </html>
