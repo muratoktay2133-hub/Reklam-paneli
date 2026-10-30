@@ -1,3 +1,5 @@
+const API_ID = process.env.TELEGRAM_API_ID;
+const API_HASH = process.env.TELEGRAM_API_HASH;
 const http = require("http");
 
 const PORT = process.env.PORT || 3000;
