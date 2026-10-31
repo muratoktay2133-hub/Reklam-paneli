@@ -1,0 +1,13 @@
+{
+  "name": "bulut-telegram-paneli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bulut Telegram Paneli sunucusu",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "telegram": "^2.26.22"
+  }
+}
