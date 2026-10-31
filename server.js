@@ -1,5 +1,6 @@
 const http = require("http");
-
+const { TelegramClient } = require("telegram");
+const { StringSession } = require("telegram/sessions");
 const PORT = process.env.PORT || 3000;
 
 const API_ID = process.env.TELEGRAM_API_ID;
